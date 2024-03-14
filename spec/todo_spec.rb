@@ -11,7 +11,7 @@ RSpec.describe TodoList do
 
   describe ".remove" do
     it "removes a todo from the list" do
-      expect(todo1.remove('Make mac and cheese')) unless todo1.todos.include?('Make mac and chees')
+      expect(todo1.remove('Make mac and cheese')).to eq(nil)
     end
   end
 
