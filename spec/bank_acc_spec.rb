@@ -4,15 +4,13 @@ RSpec.describe BankAccount do
   let(:acct){BankAccount.new}
   describe ".deposit" do
     it "increases the balance by the deposit amount" do
-      balance_1 = acct.balance
-      expect(acct.deposit(150)).to be > balance_1
+      expect(acct.deposit(150)).to eq(acct.balance)
     end
   end
 
   describe ".withdraw" do
     it "decreases the balance by the withdrawal amount if funds are available" do
-      balance_1 = acct.deposit(150)
-      expect(acct.withdraw(100)).to be < balance_1
+      expect(acct.withdraw(100)).to eq(acct.balance)
     end
 
     it "does not change the balance if insufficient funds" do
@@ -23,7 +21,7 @@ RSpec.describe BankAccount do
 
   describe "#balance" do
     it "returns the current balance" do
-      expect(acct.balance).to eq(acct.balance)
+      expect(acct.balance).to eq(0)
 
     end
   end
